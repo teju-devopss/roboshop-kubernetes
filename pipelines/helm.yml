@@ -1,0 +1,25 @@
+format_version: 10
+
+pipelines:
+  helm-charts:
+    group: kubernetes
+    label_template: "${COUNT}"
+    materials:
+      ansible:
+        git: https://github.com/teju-devopss/roboshop-kubernetes
+        branch: main
+
+    stages:
+      - install:
+          fetch_materials: true
+          approval:
+            type: manual
+            allow_only_on_success: false
+          jobs:
+            deployment:
+              timeout: 0
+              tasks:
+                - exec:
+                    command: bash
+                    arguments: [ "helm.sh","install"]
+
