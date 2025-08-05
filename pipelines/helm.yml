@@ -23,3 +23,15 @@ pipelines:
                     command: bash
                     arguments: [ "helm.sh","install"]
 
+      - uninstall:
+          fetch_materials: true
+          approval:
+            type: manual
+            allow_only_on_success: false
+          jobs:
+            deployment:
+              timeout: 0
+              tasks:
+                - exec:
+                    command: bash
+                    arguments: [ "helm.sh","uninstall"]
