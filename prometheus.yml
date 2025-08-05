@@ -3,4 +3,4 @@ grafana:
     enabled: true
     ingressClassName: nginx
     hosts:
-      - grafana-dev.tejudevops.online
+      - grafana.tejudevops.online
