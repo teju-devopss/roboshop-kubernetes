@@ -16,7 +16,7 @@ pipelines:
             type: manual
             allow_only_on_success: false
           jobs:
-            deployment:
+            install:
               timeout: 0
               tasks:
                 - exec:
@@ -29,7 +29,7 @@ pipelines:
             type: manual
             allow_only_on_success: false
           jobs:
-            deployment:
+            uninstall:
               timeout: 0
               tasks:
                 - exec:

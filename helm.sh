@@ -1,3 +1,4 @@
+aws eks update-kubeconfig --name dev-eks
 if [ "$1" == "install" ]; then
   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
   helm repo add elastic https://helm.elastic.co
@@ -9,7 +10,7 @@ if [ "$1" == "install" ]; then
   helm install filebeat elastic/filebeat -f filebeat.yml
 fi
 
-if [ "$1" == "delete" ]; then
+if [ "$1" == "uninstall" ]; then
   helm uninstall ngx-ingres
   kubectl delete -f external-dns.yml
   helm uninstall filebeat
