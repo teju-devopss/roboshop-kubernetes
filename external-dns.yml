@@ -57,10 +57,6 @@ spec:
       containers:
         - name: external-dns
           image: bitnami/external-dns:0.13.1
-          # must specify env AWS_REGION in AWS china regions
-          # env:
-          # - name: AWS_REGION
-          #   value: cn-north-1
           args:
             - --source=service
             - --source=ingress
