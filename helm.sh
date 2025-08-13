@@ -12,6 +12,7 @@ if [ "$1" == "install" ]; then
   kubectl apply -f external-dns.yml
   helm upgrade -i filebeat elastic/filebeat -f filebeat.yml
   helm upgrade -i prometheus prometheus-community/kube-prometheus-stack -f prometheus.yml
+  helm upgrade -i node-autoscaler  autoscaler/cluster-autoscaler --set 'autoDiscovery.clusterName'=dev-eks
 fi
 
 if [ "$1" == "uninstall" ]; then
@@ -19,5 +20,6 @@ if [ "$1" == "uninstall" ]; then
   kubectl delete -f external-dns.yml
   helm uninstall filebeat
   helm uninstall prometheus
+  helm uninstall node-autoscaler
 fi
 
