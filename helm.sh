@@ -4,6 +4,7 @@ if [ "$1" == "install" ]; then
   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
   helm repo add elastic https://helm.elastic.co
   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+  helm repo add autoscaler https://kubernetes.github.io/autoscaler
 
 
   helm repo update
